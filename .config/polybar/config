@@ -1,0 +1,153 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+black = ${xrdb:*.color0}
+background = #c0222626
+;background = #99000000
+accent = #ffe28131
+red = ${xrdb:*.color1}
+green = ${xrdb:*.color2}
+yellow = ${xrdb:*.color3}
+blue = ${xrdb:*.color4}
+magenta = ${xrdb:*.color5}
+cyan = ${xrdb:*.color6}
+white = ${xrdb:*.color7}
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/Bar]
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 0%
+background = ${colors.background}
+foreground = ${colors.white}
+
+;border-size=20
+border-size=0
+border-bottom-size=0
+border-color=#00
+
+/*override-redirect = true*/
+;radius = 10
+/*wm-restack = i3*/
+spacing = 1
+padding-left = 1
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+line-size = 4
+
+font-0 = Fira Code:size=10;4
+;font-0 = Monoisome:size=21;4
+font-1 = FontAwesome:size=8;4
+
+
+modules-left = i3 xwindow
+modules-center =
+modules-right = volume date
+
+tray-position = right
+tray-padding = 0
+
+[module/rofi]
+type = custom/text
+
+content = 
+click-left = rofi -show run
+
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = true
+
+label-mode-foreground = ${colors.black}
+label-mode-background = ${colors.red}
+label-mode-padding = 1
+label-mode-margin = 1
+
+label-focused-font = 3
+label-unfocused-font = 3
+label-urgent-font = 3
+label-visible-font = 3
+
+;ws-icon-0 = 1;
+;ws-icon-0 = 1;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;
+
+label-focused = %icon%
+;label-focused-background = ${colors.yellow}
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.black}
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.black}
+label-urgent-background = ${colors.red}
+label-urgent-padding = 2
+
+[module/date]
+type = internal/date
+date =  %A, %b. %d  %H:%M
+time = %H:%M
+interval = 5
+format-font =3 
+;format-background = ${colors.yellow}
+format-background = ${colors.accent}
+format-foreground = ${colors.black}
+format-padding = 1
+format-margin = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-margin = 1
+label-maxlen = 30
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+format-volume-padding = 2
+label-volume = ""
+;label-volume-foreground = ${colors.cyan}
+
+format-muted-prefix = " "
+format-muted-prefix-margin = 2
+;format-muted-foreground = ${colors.cyan}
+label-muted = " mute    "
+
+
+bar-volume-width = 10
+;bar-volume-foreground = ${colors.cyan}
+
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.black}
