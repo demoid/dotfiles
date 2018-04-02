@@ -40,3 +40,27 @@ set incsearch
 set autoindent
 "use intelligent indentation for C
 set smartindent
+
+"save on :make
+set autowrite
+
+"set leader key to space
+":let mapleader = " "
+map <space> <leader>
+
+map <leader>n :cnext<CR>
+map <leader>m :cprev<CR>
+map <leader>a :cclose<CR>
+
+"Go specific bindings - move to different file when necessary
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go set noexpandtab
+autocmd FileType go set softtabstop=0
+autocmd FileType go set tabstop=2
+
+"vim-plug plugins
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+call plug#end()
