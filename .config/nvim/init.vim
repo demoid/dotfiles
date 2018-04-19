@@ -2,6 +2,8 @@
 set t_Co=256
 "make highlighted things readable
 set background=dark
+"pretty colors
+colorscheme gruvbox
 
 "enable syntax processing
 syntax enable 
